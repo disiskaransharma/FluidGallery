@@ -29,7 +29,10 @@ class Footer extends Component {
         </div>
 
         <div className="container-fluid p-0 text-center">
-          <p className="copyright m-0">
+          <p
+            className="copyright m-0"
+            style={{ backgroundColor: this.props.bgColor }}
+          >
             Copyright © 2022 Your Company | Design: Templatemo
           </p>
         </div>

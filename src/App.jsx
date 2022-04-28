@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Navbar />
+          <Navbar onRouteChange={this.onRouteChange} />
           <div className="content">
             <Routes>
               <Route path="/gallery/:id" element={<Gallery />} />
@@ -22,11 +22,17 @@ class App extends Component {
               <Route path="*" element={<Navigate to="/gallery/1" replace />} />
             </Routes>
           </div>
-          <Footer />
+          <Footer bgColor={this.state.footerClr} />
         </div>
       </BrowserRouter>
     );
   }
+
+  onRouteChange = (item) => {
+    document.body.style = `background: ${item.bgColor};`;
+    this.setState({ footerClr: item.ftrColor });
+    console.log(this.state.footerClr);
+  };
 }
 
 export default App;

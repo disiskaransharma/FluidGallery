@@ -54,7 +54,10 @@ class Navbar extends Component {
 
             {this.navlinks.map((item) => {
               return (
-                <li key={item.id} onClick={() => this.routeChange(item)}>
+                <li
+                  key={item.id}
+                  onClick={() => this.props.onRouteChange(item)}
+                >
                   <NavLink to={item.path}>{item.name}</NavLink>
                 </li>
               );
@@ -64,10 +67,6 @@ class Navbar extends Component {
       </div>
     );
   }
-
-  routeChange = (item) => {
-    document.body.style = `background: ${item.bgColor};`;
-  };
 }
 
 export default Navbar;
